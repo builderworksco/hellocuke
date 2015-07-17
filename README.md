@@ -16,6 +16,13 @@ When showing people how to do test-driven development at the BDD/ATDD level, you
 
 ## Execution
 
+Start the local HTTP server (python SimpleHTTPServer on port 8000):
+
+```shell
+cd app
+./server
+```
+
 Run cukes and display screens
 
 ```shell
