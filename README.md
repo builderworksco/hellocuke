@@ -16,6 +16,8 @@ When showing people how to do test-driven development at the BDD/ATDD level, you
 
 ## Execution
 
+Note - The scripts are bash and have been tested on Linux. The headless option uses the ```headless``` gem and depends on X-windows. On Windows, run ```cucumber``` or ```rake``` with a vanilla Rakefile.
+
 Start the local HTTP server (python SimpleHTTPServer on port 8000):
 
 ```shell
