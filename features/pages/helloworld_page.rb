@@ -8,5 +8,10 @@ class HelloworldPage
   select :selector, :id => "selector"
   div :greeting, :id => "greeting"
   h1 :no_results, :id => "noResultsTitle"
+  a :greeting_clearer, :id => "greeting_clearer"
+
+  def clear_greeting
+    self.link_elements.first.click
+  end
 
 end
