@@ -11,4 +11,8 @@ Cucumber::Rake::Task.new(:headless) do |t|
   t.cucumber_opts = "-f pretty -f html --out hellocukes.html"
 end
 
+Cucumber::Rake::Task.new(:server) do |t|
+  `ruby -run -ehttpd app -p8000`
+end
+
 task :default => :features
