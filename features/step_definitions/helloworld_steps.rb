@@ -1,31 +1,29 @@
 Given(/^I meet someone who speaks (.*?)$/) do |language|
-  visit_page HelloworldPage
+  @browser.goto 'http://localhost:8000/'
   @language = language_key language
 end
 
 Then(/^I say hello$/) do
-  @current_page.selector = @language
+  @browser.select(id: 'selector').select @language
 end
 
 Then(/^the greeting is "(.*?)"$/) do |greeting|
-  @current_page.greeting.should include greeting
+  @browser.div(id: 'greeting').text.should include greeting
 end
 
 Given(/^I visit the hello world app$/) do
-  visit_page HelloworldPage
+  @browser.get 'http://localhost:8000/'
 end
 
 Then 'the default greeting is "Hello, World!"' do
-  @current_page.greeting.should include 'Hello, World!'
+  @browser.div(id: 'greeting').text.should include 'Hello, World!'
 end
 
 When(/^I clear the message$/) do
-  @current_page.clear_greeting
+  @browser.link_elements.first.click
 end
 
 Then(/^the greeting "(.*?)" is not displayed$/) do |arg1|
-  require 'pry'
-  binding.pry
-  @current_page.greeting.should_not include 'Hello, World!'
-  @current_page.greeting.should eq ''
+  @browser.div(id: 'greeting').text.should_not include 'Hello, World!'
+  @browser.div(id: 'greeting').text.should eq ''
 end

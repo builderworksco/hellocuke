@@ -1,5 +1,7 @@
+require 'watir-webdriver'
+
 Before do
-  @browser = Selenium::WebDriver.for(:chrome)
+  @browser = Watir::Browser.new :chrome
 end
 
 After do |scenario|
